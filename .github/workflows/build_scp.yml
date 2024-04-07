@@ -45,6 +45,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           source: "dist"
           target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/"
+          debug: true
       # - name: Reset permissions on EC2
       #   uses: appleboy/ssh-action@master
       #   with:
