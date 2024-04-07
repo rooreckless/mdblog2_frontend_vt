@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      #このymlが使われるリポジトリをチェックアウトします
+      #このymlが使われるリポジトリをチェックアウトしてビルドします。
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: build vue
@@ -35,7 +35,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           #distディレクトリの保存先は/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/distです。これを削除します。
           script: |
-            sudo rm -rf /home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist
+            sudo rm -rf /home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist && ls /home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail
             
 
       #チェックアウトしたリポジトリ内のfront_v_tail/index.htmlをEC2の/tmpにアップロードします
@@ -47,8 +47,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASS }}
-          source: "dist"
-          target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail"
+          source: "front_v_tail/dist/*"
+          target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist"
       # - name: Reset permissions on EC2
       #   uses: appleboy/ssh-action@master
       #   with:
