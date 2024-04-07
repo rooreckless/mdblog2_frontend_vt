@@ -16,11 +16,11 @@ jobs:
           cd front_v_tail
           npm install
           npm run build
-      # ファイルを指定したディレクトリに移動
-      - name: Copy files to target directory
-        run: |
-          mkdir html
-          cp -R front_v_tail/dist/* html
+      # # ファイルを指定したディレクトリに移動
+      # - name: Copy files to target directory
+      #   run: |
+      #     mkdir html
+      #     cp -R front_v_tail/dist/* html
 
       # EC2インスタンス上のターゲットディレクトリを事前に削除
       - name: Remove target directory on Lightsail & Set permissions
@@ -45,8 +45,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASS }}
-          source: "html"
-          target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist"
+          source: "dist"
+          target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail"
       # - name: Reset permissions on EC2
       #   uses: appleboy/ssh-action@master
       #   with:
