@@ -16,13 +16,11 @@ jobs:
           cd front_v_tail
           npm install
           npm run build
-          pwd
-          ls
-      # ビルドした成果物をGithubインスタンスの指定したディレクトリに移動
-      - name: Copy files to target directory
-        run: |
-          mkdir html
-          cp -R front_v_tail/dist/* html
+      ## ビルドした成果物をGithubインスタンスの指定したディレクトリに移動
+      # - name: Copy files to target directory
+      #   run: |
+      #     mkdir html
+      #     cp -R front_v_tail/dist/* html
 
       # EC2インスタンス上のターゲットディレクトリを事前に削除
       - name: Remove target directory on Lightsail & Set permissions
@@ -35,18 +33,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           #distディレクトリの保存先は/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/distです。これを削除します。
           script: |
-            sudo rm -rf /home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist
-        #デバッグ用
-      - name: debug
-        run: |
-          pwd
-          ls
-          cd front_v_tail
-          pwd
-          ls
-          echo "aaaa"
-          ls dist
-          
+            sudo rm -rf /home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/dist/*
       #チェックアウトしたリポジトリ内のfront_v_tail/index.htmlをEC2の/tmpにアップロードします
       - name: Upload files by SCP
         uses: appleboy/scp-action@master
@@ -56,7 +43,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASS }}
-          source: "dist/"
+          source: "dist"
           target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/"
       # - name: Reset permissions on EC2
       #   uses: appleboy/ssh-action@master
