@@ -46,7 +46,7 @@ jobs:
           source: "dist"
           target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail"
       # lightsailインスタンス上で、docker composeを再実行します。
-      - name: Remove target directory on Lightsail & Set permissions
+      - name: Restart Docker Compose
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
