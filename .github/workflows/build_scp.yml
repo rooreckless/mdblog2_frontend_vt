@@ -31,6 +31,7 @@ jobs:
       #Githubインスタンスのビルド済みデータはfront_v_tail/distにあります。
       #appleboy/scp-action@masterはsourceに記載のGithubインスタンスのディレクトリを全部再帰的にコピーするので、
       #source:front_v_tail/distとしたなら、Lightsailのmdblog2_frontend_vtにコピーする必要がある。(この場所ならfront_v_tail/distが存在していいから)
+      # ※distディレクトリだけをコピーしたいなら、Githubインスタンスの上位に、コピーしたいデータを確保してから「source: 1つのディレクトリだけ」とする必要がある
       - name: Upload files by SCP
         uses: appleboy/scp-action@master
         with:
