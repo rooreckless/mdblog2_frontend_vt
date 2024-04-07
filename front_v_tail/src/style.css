@@ -1,0 +1,63 @@
+/* https://tailwindcss.com/docs/guides/vite#vueに基づいて、以下3行はかならず必要 */
+/*base はPreflight = ノーマライズcss+alpha = node_modules/tailwindcss/src/css/preflight.cssが当たる*/
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+/* フォント追加 */
+
+@font-face {
+  font-family: 'UDEV';
+  src: url('./font/UDEVGothicJPDOC-Regular.woff') format('woff');
+  font-weight: normal; /* 通常のフォント */
+  font-style: normal; /* 通常のスタイル */
+  
+}
+@font-face {
+  font-family: 'UDEV';
+  src: url('./font/UDEVGothicJPDOC-Bold.woff') format('woff');
+  font-weight: bold; /* boldのフォント */
+  font-style: normal; /* 通常のスタイル */
+}
+@font-face {
+  font-family: 'UDEV';
+  src: url('./font/UDEVGothicJPDOC-Italic.woff') format('woff');
+  font-weight: normal; /* 通常のフォント */
+  font-style: Italic; /* italicのスタイル */
+}
+@font-face {
+  font-family: 'UDEV';
+  src: url('./font/UDEVGothicJPDOC-BoldItalic.woff') format('woff');
+  font-weight: bold; /* boldのフォント */
+  font-style: Italic; /* italicのスタイル */
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+/* @layer base = htmlタグを使うだけで自動的にtailwindcssのクラスをあてられるようになる */
+/* @layer base {
+  h1{
+    @apply text-red-500 bg-green-300;
+  }
+} */
+
+/* @apply = tailwindcssの複数のクラスをまとめた、新しいクラスを定義する */
+
+/* .custom-class3{
+  // ↓の行にあるcustom-class + 背景を赤 = custom-class3
+  @apply custom-class bg-red-300;
+}
+
+.custom-class {
+  @apply text-blue-500 text-3xl;
+  
+}
+
+.custom-class2{
+  // ここより↑の行にあるcustom-class + 背景をオレンジ = custom-class2
+  @apply custom-class bg-orange-300;
+} */
