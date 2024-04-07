@@ -16,11 +16,11 @@ jobs:
           cd front_v_tail
           npm install
           npm run build
-      ## ビルドした成果物をGithubインスタンスの上位のdistディレクトリを別途作成して移動
-      - name: Copy files to target directory
-        run: |
-          mkdir dist
-          cp -R front_v_tail/dist/* dist
+      # ## ビルドした成果物をGithubインスタンスの上位のdistディレクトリを別途作成して移動
+      # - name: Copy files to target directory
+      #   run: |
+      #     mkdir dist
+      #     cp -R front_v_tail/dist/* dist
 
       # EC2インスタンス上のターゲットディレクトリを事前に削除
       - name: Remove target directory on Lightsail & Set permissions
@@ -45,7 +45,9 @@ jobs:
       #     passphrase: ${{ secrets.SSH_PASS }}
       #     source: "dist"
       #     target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail"
-      #Githubインスタンスの上位のdistディレクトリ(front_v_tail/distではない)を、lightsailの指定したディレクトリにコピーします。
+      #Githubインスタンスのビルド済みデータはfront_v_tail/distにある
+      #appleboy/scp-action@masterはsourceに記載のGithubインスタンスのディレクトリ全部コピーするので、
+      #source:front_v_tail/distとしたなら、Lightsailのmdblog2_frontend_vtにコピーする必要がある。
       - name: Upload files by SCP
         uses: appleboy/scp-action@master
         with:
@@ -56,7 +58,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           source: "front_v_tail/dist"
           target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/"
-      # lightsailインスタンス上で、docker composeを再実行します。
+      # lightsailインスタンス上で、docker composeを一度ダウン→デーモンモードで再起動します。
       - name: Restart Docker Compose
         uses: appleboy/ssh-action@master
         with:

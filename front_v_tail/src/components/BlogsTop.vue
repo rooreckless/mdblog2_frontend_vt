@@ -33,7 +33,7 @@ const getImagePath=((ImgFileName)=>{
 
 <template>
   <!-- この画面を描画するときのタイトル -->
-  <h1>{{AllArticlesRef.top_title}}</h1>
+  <h1>Blogs : {{AllArticlesRef.top_title}}</h1>
   <p>総数 : {{ AllArticlesRef.count }}件</p>
   <!-- <pre>{{ AllArticlesRef }}</pre> -->
   <div class="border-4 border-solid border-slate-500 m-4" v-for="article in AllArticlesRef.md_contents">
