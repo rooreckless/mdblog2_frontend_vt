@@ -56,7 +56,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASS }}
-          source: "front_v_tail/dist/"
+          source: "dist/"
           target: "/home/ec2-user/mdblog2_backend/mdblog2_frontend_vt/front_v_tail/"
       # - name: Reset permissions on EC2
       #   uses: appleboy/ssh-action@master
