@@ -44,11 +44,9 @@ jobs:
           cd front_v_tail
           pwd
           ls
-          cd ../html
-          pwd
-          ls
           echo "aaaa"
           ls dist
+          
       #チェックアウトしたリポジトリ内のfront_v_tail/index.htmlをEC2の/tmpにアップロードします
       - name: Upload files by SCP
         uses: appleboy/scp-action@master
