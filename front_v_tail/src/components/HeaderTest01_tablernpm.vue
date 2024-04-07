@@ -21,7 +21,7 @@ const count = ref(0)
           <circle cx="12" cy="12" r="10" fill="none" stroke="black" stroke-width="2"/>
           <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" fill="black" text-anchor="middle" dy=".3em">r</text>
         </svg>
-        <span class="ml-3 text-xl">roo's memosite</span>
+        <span class="ml-3 text-xl">roo's mdblogsite</span>
       <!-- </a> -->
       </RouterLink>
       <!-- nav タブレット以上幅で左マージンauto -->

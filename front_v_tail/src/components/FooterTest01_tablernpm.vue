@@ -21,7 +21,7 @@ const count = ref(0)
           <circle cx="12" cy="12" r="10" fill="none" stroke="black" stroke-width="2"/>
           <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" fill="black" text-anchor="middle" dy=".3em">r</text>
         </svg>
-        <span class="ml-3 text-xl">roo's memosite</span>
+        <span class="ml-3 text-xl">roo's mdblogsite</span>
       <!-- </a> -->
       </RouterLink>
       <!-- コピーライトと(スマホ以上幅で)左側ボーダー -->
@@ -29,7 +29,7 @@ const count = ref(0)
       <!-- ここからはsnsアイコン スマホ以上幅で左側マージンがauto -->
       <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
         <!-- 1つめ -->
-        <a class="text-gray-500 hover:text-gray-900" href="https://github.com/rooreckless/mdblog-flask">
+        <a class="text-gray-500 hover:text-gray-900" href="https://github.com/rooreckless/mdblog2_backend">
           <IconBrandGithub class="w-5 h-5" data-darkreader-inline-fill="" style="--darkreader-inline-fill: currentColor;"></IconBrandGithub>
         </a>
         <!-- 2つめ -->

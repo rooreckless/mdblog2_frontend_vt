@@ -31,5 +31,7 @@
 
   <p class="font-udev">追記 : 2024/4/7現在ではサイトをリニューアルし、<a class="text-sky-500 hover:text-red-500" href="https://www.roosmdblogsite.net/">https://www.roosmdblogsite.net/</a>になります。</p>
 
-  <p class="font-udev">(Githubリポジトリは<a href="https://github.com/rooreckless/mdblog2_vtfn_repo" class="text-sky-500 hover:text-red-500">https://github.com/rooreckless/mdblog2_vtfn_repo</a>になります。)</p>
+  <p class="font-udev">(Githubリポジトリは<a href="https://github.com/rooreckless/mdblog2_backend" class="text-sky-500 hover:text-red-500">https://github.com/rooreckless/mdblog2_backend</a><br>
+  と<br>
+  <a href="https://github.com/rooreckless/mdblog2_frontend_vt" class="text-sky-500 hover:text-red-500">https://github.com/rooreckless/mdblog2_frontend_vt</a>になります。)</p>
 </template>
